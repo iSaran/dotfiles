@@ -48,7 +48,7 @@ fi
 export PS1=$'\[\033[38;5;202m\]\W \xe2\x96\xb8\[\033[0m\] '
 if [ -f $DOTFILES_DIR/git/git-prompt.sh ]; then
   export GIT_PS1_SHOWDIRTYSTATE=1
-  export PS1=$'\[\033[38;5;202m\]\W$(__git_ps1 " (%s)") \xe2\x96\xb8\[\033[0m\] '
+  export PS1=$'\[\033[38;5;202m\]\u@\H \W$(__git_ps1 " (%s)") \xe2\x96\xb8\[\033[0m\] '
 fi
 export LC_NUMERIC=C
 export LC_COLLATE=C
