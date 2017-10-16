@@ -41,6 +41,12 @@ if [ -d $HOME/Dropbox/code/scripts ]; then
     export PATH=$PATH:$HOME/Dropbox/code/scripts
 fi
 
+# Export to path and libraries of MuJoCo physics engine, if exists in home
+if [ -d $HOME/mjpro150/ ]; then
+    export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:$HOME/mjpro150/bin
+    export PATH=$PATH:$HOME/mjpro150/bin
+fi
+
 
 
 # Set some variables
