@@ -45,6 +45,9 @@ fi
 if [ -d $HOME/mjpro150/ ]; then
     export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:$HOME/mjpro150/bin
     export PATH=$PATH:$HOME/mjpro150/bin
+    export MUJOCO150_PATH=$HOME/mjpro150
+    export MUJOCO150_PATH=$MUJOCO150_PATH:$HOME/mjpro150/include
+    export MUJOCO150_PATH=$MUJOCO150_PATH:$HOME/mjpro150/bin
 fi
 
 
