@@ -1,3 +1,5 @@
+set -o vi
+
 # Source aliases
 if [ -f $DOTFILES_DIR/bash/aliases ]; then
     . $DOTFILES_DIR/bash/aliases
