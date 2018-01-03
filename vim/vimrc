@@ -3,6 +3,10 @@ filetype off                  " required
 
 set encoding=utf-8
 
+""""""""""""""""""""""""""""
+""" Plugin Configuration """
+""""""""""""""""""""""""""""
+
 " set the runtime path to include Vundle and initialize
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
@@ -23,7 +27,10 @@ Plugin 'fatih/vim-go'
 Plugin 'docker/docker' , {'rtp': '/contrib/syntax/vim/'}
 Plugin 'jreybert/vimagit'
 Plugin 'tpope/vim-surround'
-"Plugin 'Valloric/YouCompleteMe'
+" Plugin 'rakr/vim-one'
+" Plugin 'Yggdroot/indentLine'
+" Plugin 'xuhdev/vim-latex-live-preview'
+" Plugin 'Valloric/YouCompleteMe'
 
 " All of your Plugins must be added before the following line
 call vundle#end()
@@ -32,10 +39,28 @@ filetype plugin indent on
 "filetype plugin on
 " Put your non-Plugin stuff after this line
 
-"set colors to 256-value
-set t_Co=256
+" Airline Plugin options
+let g:airline_powerline_fonts=1
+let g:airline_right_alt_sep = ''
+let g:airline_right_sep = ''
+let g:airline_left_alt_sep= ''
+let g:airline_left_sep = ''
+let g:airline_theme='luna'
+let g:airline#extensions#tabline#enabled = 1 "Enable the list of buffers
+let g:airline#extensions#tabline#fnamemod = ':t' "Show just the filname
 
-" *** General settings like line numbers etc
+" Ctrl-P configurations
+let g:ctrlp_map = '<c-p>'
+
+" Clang configurations
+let g:clang_format#command = 'clang-format-3.6'
+
+
+""""""""""""""""""""""""
+""" General Settings """
+""""""""""""""""""""""""
+
+set t_Co=256 "set colors to 256-value
 set wrap "wrap long lines
 set number "show line numbers
 set numberwidth=3 "change width of line numbers
@@ -45,13 +70,12 @@ set incsearch "enable incremental search (after pressing /)
 set hlsearch "enable highlighting in search
 set cursorline "highlight current line
 
-
 "Enable colorscheme
 syntax on
 colorscheme 256-jungle
 "colorscheme sourcerer
 
-"Show encoding in status line
+" Settings for the status line
 "set laststatus=2 statusline=%f\ %m\ %{&fileencoding?&fileencoding:&encoding}
 "set statusline=%<\ %n:%f\ %m%r%y%=%-35.(line:\ %l\ of\ %L,\ col:\ %c%V\ (%P)%)
 set laststatus=2 "Show status line
@@ -68,6 +92,10 @@ set statusline+=\ -\
 set statusline+=Encoding:
 set statusline+=%{&fileencoding?&fileencoding:&encoding}
 
+"Show the line breaks as a dash
+set list
+set listchars=tab:▸\ ,eol:¬
+
 "Change color when you change modes
 au InsertEnter * hi StatusLine term=reverse ctermbg=39 ctermfg=53
 au InsertLeave * hi StatusLine term=reverse ctermbg=None ctermfg=39
@@ -75,6 +103,13 @@ au InsertLeave * hi StatusLine term=reverse ctermbg=None ctermfg=39
 "Save the folds when you quit the file
 "autocmd BufWinLeave *.* mkview
 "autocmd BufWinEnter *.* silent loadview
+
+" Set the leader char. The leader is used in a variaty of shortcuts
+let mapleader = ','
+
+"""""""""""""""""""""""""
+""" Advanced Settings """
+"""""""""""""""""""""""""
 
 " Function that toggles between keymaps (greek and english)
 set keymap=
@@ -87,6 +122,7 @@ function ToggleKeymap()
     echo "Switched to greek"
   endif
 endfunction
+nnoremap <Leader>l  :call ToggleKeymap()<CR>
 
 "Enable wrapping by \w
 noremap <silent> <Leader>w :call ToggleWrap()<CR>
@@ -129,6 +165,7 @@ function! NumberToggle()
     set relativenumber
   endif
 endfunc
+nnoremap <Leader>r :call NumberToggle()<CR>
 
 " Vim will keep the indetation when you go to the next line
 set autoindent
@@ -158,10 +195,6 @@ map <F8> :tabn <CR>
 map <F6> "+p
 map <F5> "+y
 
-"Show the line breaks as a dash
-set list
-set listchars=tab:▸\ ,eol:¬
-
 "Highlight characters tha go beyond the 80th column in markdown files
 "augroup vimrc_autocmds
 "  autocmd FileType markdown highlight OverLength ctermfg=red ctermbg=None guibg=#592929
@@ -175,7 +208,6 @@ set listchars=tab:▸\ ,eol:¬
 "augroup END
 
 " Add leader mappings
-let mapleader = ','
 nnoremap <Leader>rtw :%s/\s\+$//e<CR>
 nnoremap <Leader>fs :set foldmethod=syntax<CR>
 nnoremap <Leader>n :NERDTreeToggle<CR>
@@ -200,27 +232,31 @@ nnoremap <Leader>7 :7b<CR>
 nnoremap <Leader>8 :8b<CR>
 nnoremap <Leader>9 :9b<CR>
 nnoremap <Leader>0 :10b<CR>
-nnoremap <Leader>l  :call ToggleKeymap()<CR>
 nnoremap <Leader>cf :ClangFormat<CR>
-nnoremap <Leader>r :call NumberToggle()<CR>
 nnoremap <Leader>v :edit $MYVIMRC<CR>
 command! -nargs=1 Mygrep vimgrep /<args>/gj ./**/* | cw
 nnoremap <leader>s :Mygrep 
 
 set hidden "hidden buffers, now u dont need to write a buffer if you want to change to another.
 
-" airline options
-let g:airline_powerline_fonts=1
-let g:airline_right_alt_sep = ''
-let g:airline_right_sep = ''
-let g:airline_left_alt_sep= ''
-let g:airline_left_sep = ''
-let g:airline_theme='luna'
-let g:airline#extensions#tabline#enabled = 1 "Enable the list of buffers
-let g:airline#extensions#tabline#fnamemod = ':t' "Show just the filname
+""""""""""""""""""""""""""""""""""""""
+""" Specific to filetype shortcuts """
+""""""""""""""""""""""""""""""""""""""
 
-" Ctrl-P configurations
-let g:ctrlp_map = '<c-p>'
+" Latex shortcuts
+inoremap <Space><Tab> <Esc>/<++><Enter>"_c4l
+map <Space><Tab> <Esc>/<++><Enter>"_c4l
+autocmd FileType tex inoremap <Leader>bf \textbf{}<++><Esc>T{i
+autocmd FileType tex inoremap <Leader>it \begin{itemize}<Enter><Enter>\end{itemize}<Enter><Enter><++><Esc>3kA\item<Space>
+autocmd FileType tex inoremap <Leader>en \begin{enumerate}<Enter><Enter>\end{enumerate}<Enter><Enter><++><Esc>3kA\item<Space>
+autocmd FileType tex inoremap <Leader>li <Enter>\item<Space>
+autocmd FileType tex inoremap <Leader>em \emph{}<++><Esc>T{i
+autocmd FileType tex inoremap <Leader>chap \chapter{}<Enter><Enter><++><Esc>2kf}i
+autocmd FileType tex inoremap <Leader>sec \section{}<Enter><Enter><++><Esc>2kf}i
+autocmd FileType tex inoremap <Leader>ssec \subsection{}<Enter><Enter><++><Esc>2kf}i
+autocmd FileType tex inoremap <Leader>sssec \subsubsection{}<Enter><Enter><++><Esc>2kf}i
+autocmd FileType tex inoremap <Leader>m $$<Space><++><Esc>2T$i
 
-" Clang configurations
-let g:clang_format#command = 'clang-format-3.6'
+" XML shortcuts. Mainly for ROS xmls like package.xml
+autocmd FileType xml inoremap <Leader>bu <build_depend><build_depend><Esc>F<i
+autocmd FileType xml inoremap <Leader>ru <run_depend><run_depend><Esc>F<i
