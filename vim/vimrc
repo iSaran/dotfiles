@@ -223,3 +223,21 @@ let g:ctrlp_map = '<c-p>'
 
 " Clang configurations
 let g:clang_format#command = 'clang-format-3.6'
+
+" Latex shortcuts
+inoremap <Space><Tab> <Esc>/<++><Enter>"_c4l
+map <Space><Tab> <Esc>/<++><Enter>"_c4l
+autocmd FileType tex inoremap <Leader>bf \textbf{}<++><Esc>T{i
+autocmd FileType tex inoremap <Leader>it \begin{itemize}<Enter><Enter>\end{itemize}<Enter><Enter><++><Esc>3kA\item<Space>
+autocmd FileType tex inoremap <Leader>en \begin{enumerate}<Enter><Enter>\end{enumerate}<Enter><Enter><++><Esc>3kA\item<Space>
+autocmd FileType tex inoremap <Leader>li <Enter>\item<Space>
+autocmd FileType tex inoremap <Leader>em \emph{}<++><Esc>T{i
+autocmd FileType tex inoremap <Leader>chap \chapter{}<Enter><Enter><++><Esc>2kf}i
+autocmd FileType tex inoremap <Leader>sec \section{}<Enter><Enter><++><Esc>2kf}i
+autocmd FileType tex inoremap <Leader>ssec \subsection{}<Enter><Enter><++><Esc>2kf}i
+autocmd FileType tex inoremap <Leader>sssec \subsubsection{}<Enter><Enter><++><Esc>2kf}i
+autocmd FileType tex inoremap <Leader>m $$<Space><++><Esc>2T$i
+
+" XML shortcuts. Mainly for ROS xmls like package.xml
+autocmd FileType xml inoremap <Leader>bu <build_depend><build_depend><Esc>F<i
+autocmd FileType xml inoremap <Leader>ru <run_depend><run_depend><Esc>F<i
