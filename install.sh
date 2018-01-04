@@ -1,9 +1,11 @@
 #!/bin/bash 
 # Define variables
 
+set -e
 echo "Installing dotfiles..."
 
 echo "  Installing dependencies"
+sudo apt-get update
 sudo apt-get install -y vim vim-gtk git qgit tmux tree subversion pandoc pandoc-citeproc 
 
 
