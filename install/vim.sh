@@ -2,71 +2,52 @@
 
 ## @author Iason Sarantopoulos
 
-# ViM config. Backup possible existing directories and files and remove
-# existing symlinks.
-echo "   Configuring ViM..."
+MESSAGE="Configuring ViM..."; blue_echo
 
-echo "     Checking ~/.vim"
+sudo apt-get install -y vim vim-gtk git
+
+###############################################################################
+###                  Set up .vim directory and .vimrc                       ###
+###############################################################################
+
+MESSAGE="Setting up .vim directory and .vimrc..."; blue_echo
+
+# Check if a directory .vim exists, if yes move it to backup directory.
 if [ -d ~/.vim ]; then
-  if [ -L ~/.vim ]; then
-    # It is a symlink!  # Symbolic link specific commands go here.
-    echo "       Existing symlink found. Deleted it."
-    rm ~/.vim
-  else
-    # It's a directory!  # Directory command goes here.
-    #rmdir ~/.vim
-    echo "       Existing directory found. Moving it to $DOTFILES_DIR/backups/$BACKUP_NAME/vim"
-    mv ~/.vim "$DOTFILES_DIR/backups/$BACKUP_NAME/vim"
-  fi
+  mv ~/.vim $BACKUP_NAME/vim
 fi
 
-echo "     Creating a new ~/.vim"
+# Create a new .vim directory
 mkdir ~/.vim
-echo "     Creating a new symlink ~/.vim/colors"
+
+# Create a link to colors
 ln -s "$DOTFILES_DIR/vim/colors" ~/.vim/colors
 
-echo "     Checking ~/.vimrc"
 if [ -f ~/.vimrc ]; then
-  if [ -L ~/.vimrc ]; then
-    # It is a symlink!  # Symbolic link specific commands go here.
-    echo "       Existing symlink found. Deleted it."
-    rm ~/.vimrc
-  else
-    # It's a file!  # Directory command goes here.
-    echo "       Existing file found. Moving it to $DOTFILES_DIR/backups/$BACKUP_NAME/vimrc"
-    mv ~/.vimrc "$DOTFILES_DIR/backups/$BACKUP_NAME/vimrc"
-  fi
+  mv ~/.vimrc "$DOTFILES_DIR/backups/$BACKUP_NAME/vimrc"
 fi
-echo "     Creating a new symlink ~/.vimrc"
 ln -s "$DOTFILES_DIR/vim/vimrc" ~/.vimrc
 
-echo "  Installing ViM's plugins..."
+###############################################################################
+###                          Install ViM plugins                            ###
+###############################################################################
 
-# Check if git is available
-git --version 2>&1 >/dev/null
-GIT_IS_AVAILABLE=$?
-# ...
-if [ $GIT_IS_AVAILABLE -ne 0 ]; then # If $? var is not 0 then git is not installed
-  echo "    Git is not installed. Installing Git for git cloning..."
-  sudo apt-get install git
-fi
+MESSAGE="Installing ViM's plugins..."; blue_echo
+
+git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
+vim +PluginInstall +qall
+
 git config --global core.editor "vim"
 git config --global diff.tool vimdiff
 git config --global merge.tool vimdiff
 git config --global merge.conflictstyle diff3
 
-echo "    Cloning Vudle (the plugin manager) from GitHub..."
-git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
+###############################################################################
+###                          Install ViM plugins                            ###
+###############################################################################
 
-command -v vim > /dev/null 2>&1
-VIM_IS_AVAILABLE=$?
-if [ $VIM_IS_AVAILABLE -eq 0 ]; then
-  echo "    Installing ViM plug-ins with Vundle..."
-  vim +PluginInstall +qall
-fi
+MESSAGE="Installing Powerline fonts..."; blue_echo
 
-echo "  Installing fonts..."
-echo "    Cloning powerline fonts from GitHub..."
 cd $DOTFILES_DIR
 
 if [ -d fonts ]; then
@@ -78,7 +59,6 @@ else
 fi
 
 cd fonts
-echo "    Install fonts..."
 ./install.sh
 
-echo "Done. Choose one powerline font for your terminal and you are ready to go..."
+MESSAGE="ViM configured successfully. Choose one powerline font for your terminal."; blue_echo

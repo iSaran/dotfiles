@@ -56,4 +56,5 @@ fi
 echo "     Creating a new symlink ~/.tmux.conf"
 ln -s "$DOTFILES_DIR/tmux/tmux.conf" ~/.tmux.conf
 
+source $INSTALL_SCRIPTS_DIR/vim.sh
 source $INSTALL_SCRIPTS_DIR/ranger.sh
