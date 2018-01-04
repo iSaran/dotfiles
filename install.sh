@@ -5,16 +5,13 @@ set -e
 source install/my_echo.sh
 source install/config.sh
 
+mkdir -p $BACKUP_DIR
+
 echo "Installing dotfiles..."
 
 echo "  Installing dependencies"
-sudo apt-get update
+sudo apt-get update > /dev/null
 sudo apt-get install -y vim vim-gtk git qgit tmux tree subversion pandoc pandoc-citeproc 
-
-cd $DOTFILES_DIR
-mkdir -p backups
-cd backups
-mkdir -p $BACKUP_NAME
 
 # Edit bashrc in order to source my bashrc.
 # Any further change will be added to mybashrc
