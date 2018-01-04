@@ -4,7 +4,7 @@
 
 MESSAGE="Configuring ViM..."; blue_echo
 
-sudo apt-get install -y vim vim-gtk git
+sudo apt-get install -y vim vim-gtk git > /dev/null
 
 ###############################################################################
 ###                  Set up .vim directory and .vimrc                       ###
@@ -14,7 +14,11 @@ MESSAGE="Setting up .vim directory and .vimrc..."; blue_echo
 
 # Check if a directory .vim exists, if yes move it to backup directory.
 if [ -d ~/.vim ]; then
-  mv ~/.vim $BACKUP_NAME/vim
+  if [ -L ~/.vim ]; then
+    rm ~/.vim
+  else
+    mv ~/.vim $BACKUP_DIR/vim
+  fi
 fi
 
 # Create a new .vim directory
@@ -24,8 +28,13 @@ mkdir ~/.vim
 ln -s "$DOTFILES_DIR/vim/colors" ~/.vim/colors
 
 if [ -f ~/.vimrc ]; then
-  mv ~/.vimrc "$DOTFILES_DIR/backups/$BACKUP_NAME/vimrc"
+  if [ -L ~/.vimrc ]; then
+    rm ~/.vimrc
+  else
+    mv ~/.vimrc $BACKUP_DIR/vimrc
+  fi
 fi
+
 ln -s "$DOTFILES_DIR/vim/vimrc" ~/.vimrc
 
 ###############################################################################
