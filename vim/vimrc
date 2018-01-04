@@ -122,6 +122,7 @@ function ToggleKeymap()
   endif
 endfunction
 nnoremap <Leader>l  :call ToggleKeymap()<CR>
+inoremap <Leader>l  <Esc>:call ToggleKeymap()<CR>a
 
 "Enable wrapping by \w
 noremap <silent> <Leader>w :call ToggleWrap()<CR>
