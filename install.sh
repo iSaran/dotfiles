@@ -2,24 +2,14 @@
 # Define variables
 
 set -e
+source install/my_echo.sh
+source install/config.sh
+
 echo "Installing dotfiles..."
 
 echo "  Installing dependencies"
 sudo apt-get update
 sudo apt-get install -y vim vim-gtk git qgit tmux tree subversion pandoc pandoc-citeproc 
-
-
-# Function that echos current path
-path() {
-    [[ $1 = /* ]] && echo "$1" || echo "$PWD/${1#./}"
-}
-
-TIME=`date +%y%m%d_%H%M`
-BACKUP_NAME=backup_$TIME
-
-# Find current path of installed dotfiles
-SCRIPT_DIR=`path $0`
-DOTFILES_DIR=`dirname $SCRIPT_DIR`
 
 cd $DOTFILES_DIR
 mkdir -p backups
