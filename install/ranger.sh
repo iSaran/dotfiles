@@ -34,8 +34,8 @@ sudo make install > /dev/null
 
 # Clean up any temporary files
 cd $DOTFILES_DIR/ranger
-rm -rf ranger-$RANGER_VERSION
-rm -rf v$RANGER_VERSION.tar.gz
+sudo rm -rf ranger-$RANGER_VERSION
+sudo rm -rf v$RANGER_VERSION.tar.gz
 
 
 ###############################################################################
