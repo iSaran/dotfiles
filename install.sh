@@ -143,3 +143,5 @@ echo "    Install fonts..."
 source ~/.bashrc
 
 echo "Done. Choose one powerline font for your terminal and you are ready to go..."
+
+source $INSTALL_SCRIPTS_DIR/ranger.sh
