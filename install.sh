@@ -11,7 +11,7 @@ echo "Installing dotfiles..."
 
 echo "  Installing dependencies"
 sudo apt-get update > /dev/null
-sudo apt-get install -y vim vim-gtk git qgit tmux tree subversion pandoc pandoc-citeproc 
+sudo apt-get install -y vim vim-gtk git qgit tree subversion pandoc pandoc-citeproc
 
 # Edit bashrc in order to source my bashrc.
 # Any further change will be added to mybashrc
@@ -34,3 +34,4 @@ echo "" >> ~/.bashrc
 
 source $INSTALL_SCRIPTS_DIR/vim.sh
 source $INSTALL_SCRIPTS_DIR/ranger.sh
+source $INSTALL_SCRIPTS_DIR/tmux.sh

@@ -2,27 +2,18 @@
 
 ## @author Iason Sarantopoulos
 
-echo "   Configuring tmux..."
+MESSAGE="Configuring tmux"; blue_echo
 
-echo "     Checking ~/.tmux.conf"
+sudo apt-get install -y tmux
+
+###############################################################################
+###                           Set up .tmux.conf                             ###
+###############################################################################
+
 if [ -f ~/.tmux.conf ]; then
-  echo "       Existing file found. Moving it to $DOTFILES_DIR/backups/$BACKUP_NAME/tmux.conf"
-  mv ~/.tmux.conf "$DOTFILES_DIR/backups/$BACKUP_NAME/tmux.conf"
-else
-  if [ -L ~/.tmux.conf ]; then 
-    echo "       Existing tmux.conf found"
-    if [ -h ~/.tmux.conf ]; then
-      # It is a symlink!  # Symbolic link specific commands go here.
-      echo "       Existing symlink found. Deleted it."
-      rm ~/.tmux.conf
-    else
-      # It's a file!  # Directory command goes here.
-      echo "       Existing file found. Moving it to $DOTFILES_DIR/backups/$BACKUP_NAME/tmux.conf"
-      mv ~/.tmux.conf "$DOTFILES_DIR/backups/$BACKUP_NAME/tmux.conf"
-    fi
-  fi
+  mv ~/.tmux.conf $BACKUP_DIR/tmux/tmux.conf
 fi
 
-echo "     Creating a new symlink ~/.tmux.conf"
-ln -s "$DOTFILES_DIR/tmux/tmux.conf" ~/.tmux.conf
+ln -s $DOTFILES_DIR/tmux/tmux.conf ~/.tmux.conf
 
+MESSAGE="Tmux configured successfully"; blue_echo
