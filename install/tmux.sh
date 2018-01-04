@@ -16,4 +16,4 @@ fi
 
 ln -s $DOTFILES_DIR/tmux/tmux.conf ~/.tmux.conf
 
-MESSAGE="Tmux configured successfully"; blue_echo
+MESSAGE="Tmux configured successfully"; green_echo

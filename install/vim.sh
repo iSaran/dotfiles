@@ -61,4 +61,4 @@ fi
 cd fonts
 ./install.sh
 
-MESSAGE="ViM configured successfully. Choose one powerline font for your terminal."; blue_echo
+MESSAGE="ViM configured successfully. Choose one powerline font for your terminal."; green_echo
