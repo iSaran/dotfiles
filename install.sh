@@ -135,7 +135,15 @@ fi
 echo "  Installing fonts..."
 echo "    Cloning powerline fonts from GitHub..."
 cd $DOTFILES_DIR
-git clone https://github.com/powerline/fonts.git
+
+if [ -d fonts ]; then
+  cd fonts
+  git pull origin master
+  cd ..
+else
+  git clone https://github.com/powerline/fonts.git
+fi
+
 cd fonts
 echo "    Install fonts..."
 ./install.sh
