@@ -23,7 +23,8 @@ Plugin 'kien/ctrlp.vim'
 Plugin 'tpope/vim-fugitive'
 Plugin 'scrooloose/nerdtree'
 Plugin 'rhysd/vim-clang-format'
-Plugin 'fatih/vim-go'
+" Plugin 'fatih/vim-go'  " Commented out due to a warning for the version of
+" vim. Uncomment after testing. Anyways needed only for GoLang development
 Plugin 'jreybert/vimagit'
 " Plugin 'rakr/vim-one'
 " Plugin 'Yggdroot/indentLine'
