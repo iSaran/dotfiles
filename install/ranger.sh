@@ -43,14 +43,20 @@ sudo rm -rf v$RANGER_VERSION.tar.gz
 ###############################################################################
 
 mkdir -p ~/.config/ranger
+mkdir -p $BACKUP_DIR/ranger
 
-# Move the existing configuration of ranger to the backup directory
-if [ -f ~/.config/ranger/rc.conf ]; then
-  mkdir -p $BACKUP_DIR/ranger
-  mv ~/.config/ranger/rc.conf $BACKUP_DIR/ranger/rc.conf
-fi
+declare -a arr=("rc.conf" "rifle.conf")
 
-# Create a symbolic link for the ranger configuration
-ln -s $DOTFILES_DIR/ranger/rc.conf ~/.config/ranger/rc.conf
+## now loop through the above array
+for i in "${arr[@]}"
+do
+  # Move the existing configuration of ranger to the backup directory
+  if [ -f ~/.config/ranger/$i ]; then
+    mv ~/.config/ranger/$i $BACKUP_DIR/ranger/$i
+  fi
+
+  # Create a symbolic link for the ranger configuration
+  ln -s $DOTFILES_DIR/ranger/$i ~/.config/ranger/$i
+done
 
 MESSAGE="Ranger v$RANGER_VERSION successfully installed."; green_echo
