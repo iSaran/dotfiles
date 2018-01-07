@@ -1,0 +1,17 @@
+#!/bin/bash
+
+VIDEO_RECORDINGS_DIRECTORY=$HOME/video_recordings
+CURRENT_TIME=`date +%Y%m%d_%H%M%S`
+VIDEO_FILENAME="$VIDEO_RECORDINGS_DIRECTORY/video_$CURRENT_TIME.mp4"
+echo "Recording screen to: $VIDEO_FILENAME"
+
+mkdir -p $VIDEO_RECORDINGS_DIRECTORY
+
+ffmpeg \
+  -r 24 \
+  -f x11grab \
+  -s $(xdpyinfo | grep dimensions | awk '{print $2;}') \
+  -i :0.0 \
+  -c:v libx264 \
+  -preset slow \
+  $VIDEO_FILENAME  # output
