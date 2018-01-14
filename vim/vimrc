@@ -61,6 +61,8 @@ let g:clang_format#command = 'clang-format-3.6'
 
 set t_Co=256 "set colors to 256-value
 set wrap "wrap long lines
+set linebreak "Break up the words in long lines for wrapping
+set nolist "Needed for the above command (the linebreak)  to work properly
 set number "show line numbers
 set numberwidth=3 "change width of line numbers
 set ruler "show ruler in the bottom right
@@ -260,3 +262,11 @@ autocmd FileType tex inoremap <Leader>m $$<Space><++><Esc>2T$i
 " XML shortcuts. Mainly for ROS xmls like package.xml
 autocmd FileType xml inoremap <Leader>bu <build_depend><build_depend><Esc>F<i
 autocmd FileType xml inoremap <Leader>ru <run_depend><run_depend><Esc>F<i
+
+" Map Alt to movement keys in order to move in wrapped lines
+vmap <C-j> gj
+vmap <C-k> gk
+vmap <C-0> g0
+nmap <C-j> gj
+nmap <C-k> gk
+nmap <C-0> g0
