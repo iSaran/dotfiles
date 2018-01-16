@@ -248,16 +248,20 @@ set hidden "hidden buffers, now u dont need to write a buffer if you want to cha
 " Latex shortcuts
 inoremap <Space><Tab> <Esc>/<++><Enter>"_c4l
 map <Space><Tab> <Esc>/<++><Enter>"_c4l
-autocmd FileType tex inoremap <Leader>bf \textbf{}<++><Esc>T{i
+autocmd FileType tex inoremap <Leader>bf \textbf{}<Space><++><Esc>T{i
+autocmd FileType tex inoremap <Leader>bm \bm{}<Space><++><Esc>T{i
+autocmd FileType tex inoremap <Leader>bb \mathbb{}<Space><++><Esc>T{i
+autocmd FileType tex inoremap <Leader>cal \mathcal{}<Space><++><Esc>T{i
 autocmd FileType tex inoremap <Leader>it \begin{itemize}<Enter><Enter>\end{itemize}<Enter><Enter><++><Esc>3kA\item<Space>
 autocmd FileType tex inoremap <Leader>en \begin{enumerate}<Enter><Enter>\end{enumerate}<Enter><Enter><++><Esc>3kA\item<Space>
 autocmd FileType tex inoremap <Leader>li <Enter>\item<Space>
-autocmd FileType tex inoremap <Leader>em \emph{}<++><Esc>T{i
+autocmd FileType tex inoremap <Leader>em \emph{}<Space><++><Esc>T{i
 autocmd FileType tex inoremap <Leader>chap \chapter{}<Enter><Enter><++><Esc>2kf}i
 autocmd FileType tex inoremap <Leader>sec \section{}<Enter><Enter><++><Esc>2kf}i
 autocmd FileType tex inoremap <Leader>ssec \subsection{}<Enter><Enter><++><Esc>2kf}i
 autocmd FileType tex inoremap <Leader>sssec \subsubsection{}<Enter><Enter><++><Esc>2kf}i
 autocmd FileType tex inoremap <Leader>m $$<Space><++><Esc>2T$i
+autocmd FileType tex inoremap <Leader>eq \begin{equation}<Enter>\end{equation}<Enter><Enter><++><Esc>3ko
 
 " XML shortcuts. Mainly for ROS xmls like package.xml
 autocmd FileType xml inoremap <Leader>bu <build_depend><build_depend><Esc>F<i
