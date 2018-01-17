@@ -236,6 +236,7 @@ nnoremap <Leader>9 :9b<CR>
 nnoremap <Leader>0 :10b<CR>
 nnoremap <Leader>cf :ClangFormat<CR>
 nnoremap <Leader>v :edit $MYVIMRC<CR>
+nnoremap <Leader>; ,
 command! -nargs=1 Mygrep vimgrep /<args>/gj ./**/* | cw
 nnoremap <leader>s :Mygrep 
 
@@ -267,6 +268,18 @@ autocmd FileType tex inoremap <Leader>eq \begin{equation}<Enter>\end{equation}<E
 autocmd FileType xml inoremap <Leader>bu <build_depend><build_depend><Esc>F<i
 autocmd FileType xml inoremap <Leader>ru <run_depend><run_depend><Esc>F<i
 
+" Markdown shortcuts
+autocmd FileType markdown inoremap <Leader>bash ```bash<Enter>```<Esc>O
+autocmd FileType markdown inoremap <Leader>cpp ```cpp<Enter>```<Esc>O
+autocmd FileType markdown inoremap <Leader>sec #<Enter><Enter><++><Esc>kkA<Space>
+autocmd FileType markdown inoremap <Leader>ssec ##<Enter><Enter><++><Esc>kkA<Space>
+autocmd FileType markdown inoremap <Leader>sssec ###<Enter><Enter><++><Esc>kkA<Space>
+autocmd FileType markdown inoremap <Leader>url [](<++>)<Space><++><Esc>F[a
+
+" C++ shortcuts
+autocmd FileType cpp inoremap <Leader>cout std::cout<Space><<<Space><<<Space>std::endl;<Esc>3F<a<Space>
+autocmd FileType cpp inoremap <Leader>vcout std::cout<Space><<<Space>": "<<<Space><++><Space><<<Space>std::endl;<Esc>3F:i
+autocmd FileType cpp inoremap <Leader>inc #include<Space><><Esc>F<a
 " Map Alt to movement keys in order to move in wrapped lines
 vmap <C-j> gj
 vmap <C-k> gk
