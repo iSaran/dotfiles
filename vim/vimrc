@@ -265,8 +265,8 @@ autocmd FileType tex inoremap <Leader>m $$<Space><++><Esc>2T$i
 autocmd FileType tex inoremap <Leader>eq \begin{equation}<Enter>\end{equation}<Enter><Enter><++><Esc>3ko
 
 " XML shortcuts. Mainly for ROS xmls like package.xml
-autocmd FileType xml inoremap <Leader>bu <build_depend><build_depend><Esc>F<i
-autocmd FileType xml inoremap <Leader>ru <run_depend><run_depend><Esc>F<i
+autocmd FileType xml inoremap <Leader>bu <build_depend></build_depend><Esc>F<i
+autocmd FileType xml inoremap <Leader>ru <run_depend></run_depend><Esc>F<i
 
 " Markdown shortcuts
 autocmd FileType markdown inoremap <Leader>bash ```bash<Enter>```<Esc>O
