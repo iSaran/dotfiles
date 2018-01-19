@@ -277,8 +277,9 @@ autocmd FileType markdown inoremap <Leader>sssec ###<Enter><Enter><++><Esc>kkA<S
 autocmd FileType markdown inoremap <Leader>url [](<++>)<Space><++><Esc>F[a
 
 " C++ shortcuts
-autocmd FileType cpp inoremap <Leader>cout std::cout<Space><<<Space><<<Space>std::endl;<Esc>3F<a<Space>
-autocmd FileType cpp inoremap <Leader>vcout std::cout<Space><<<Space>": "<<<Space><++><Space><<<Space>std::endl;<Esc>3F:i
+autocmd FileType cpp inoremap <Leader>co std::cout<Space><<<Space><<<Space>std::endl;<Esc>3F<a<Space>
+autocmd FileType cpp inoremap <Leader>vco std::cout<Space><<<Space>": "<<<Space><++><Space><<<Space>std::endl;<Esc>3F:i
+autocmd FileType cpp inoremap <Leader>eco std::cout<Space><<<Space>"======================================================="<Space><<<Space>std::endl;<Esc>2F"a:<Space><Esc>F:i
 autocmd FileType cpp inoremap <Leader>inc #include<Space><><Esc>F<a
 " Map Alt to movement keys in order to move in wrapped lines
 vmap <C-j> gj
