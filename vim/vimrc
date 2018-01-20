@@ -210,7 +210,6 @@ augroup vimrc_autocmds
 augroup END
 
 " Add leader mappings
-nnoremap <Leader>rtw :%s/\s\+$//e<CR>
 nnoremap <Leader>fs :set foldmethod=syntax<CR>
 nnoremap <Leader>n :NERDTreeToggle<CR>
 nnoremap <Leader>gd :Gvdiff<CR>
@@ -288,3 +287,14 @@ vmap <C-0> g0
 nmap <C-j> gj
 nmap <C-k> gk
 nmap <C-0> g0
+
+" White spaces. Highlight and shortcut for remove trailing whitespaces
+highlight TrailingWhitespace ctermbg=red guibg=red
+match TrailingWhitespace /\s\+$/
+nnoremap <Leader>rtw :%s/\s\+$//e<CR>
+
+" White spaces. Highlight and shortcut for remove multiple whitespaces between
+" words in latex documents
+highlight MultipleWhitespace ctermbg=red guibg=red
+autocmd FileType tex match MultipleWhitespace /\(^\s*\)\@<!\s\s\+\|\s\+$/
+nnoremap <Leader>rmw :%s/\(^\s*\)\@<!\s\s\+\\|\s\+$/<Space>/g<CR>
