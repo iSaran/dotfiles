@@ -246,6 +246,7 @@ set hidden "hidden buffers, now u dont need to write a buffer if you want to cha
 """"""""""""""""""""""""""""""""""""""
 
 " Latex shortcuts
+let g:tex_flavor = "latex"
 inoremap <Space><Tab> <Esc>/<++><Enter>"_c4l
 map <Space><Tab> <Esc>/<++><Enter>"_c4l
 autocmd FileType tex inoremap <Leader>bf \textbf{}<Space><++><Esc>T{i
