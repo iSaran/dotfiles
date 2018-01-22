@@ -266,6 +266,7 @@ autocmd FileType tex inoremap <Leader>sssec \subsubsection{}<Enter><Enter><++><E
 autocmd FileType tex inoremap <Leader>m $$<Space><++><Esc>2T$i
 autocmd FileType tex inoremap <Leader>eq \begin{equation}<Enter>\end{equation}<Enter><Enter><++><Esc>3ko
 autocmd FileType tex inoremap <Leader>cas \begin{cases}<Enter>\end{cases}<Enter><Enter><++><Esc>3ko
+autocmd FileType tex inoremap <Leader>fig \begin{figure}[!h]<Enter>\centering<Enter>\includegraphics[width=\textwidth]{<++>}<Enter>\caption{<++>}<Enter>\label{<++>}<Enter>\end{figure}<Esc>3k0f=a
 
 " XML shortcuts. Mainly for ROS xmls like package.xml
 autocmd FileType xml inoremap <Leader>bu <build_depend></build_depend><Esc>F<i
