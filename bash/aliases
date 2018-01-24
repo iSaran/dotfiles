@@ -57,3 +57,6 @@ alias gco='git commit '
 alias gdi='git diff'
 alias gvi='git difftool'
 alias gch='git checkout'
+
+alias matlab16b='/usr/local/MATLAB/R2016b/bin/matlab'
+alias matlab17a='/usr/local/MATLAB/R2017a/bin/matlab'
