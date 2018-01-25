@@ -30,6 +30,7 @@ Plugin 'jreybert/vimagit'
 " Plugin 'Yggdroot/indentLine'
 " Plugin 'xuhdev/vim-latex-live-preview'
 " Plugin 'Valloric/YouCompleteMe'
+Plugin 'francoiscabrol/ranger.vim'
 
 " All of your Plugins must be added before the following line
 call vundle#end()
@@ -53,6 +54,9 @@ let g:ctrlp_map = '<c-p>'
 
 " Clang configurations
 let g:clang_format#command = 'clang-format-3.6'
+
+" Remove the leader+f binding for ranger in order to use leader+n
+let g:ranger_map_keys = 0
 
 
 """"""""""""""""""""""""
@@ -211,7 +215,8 @@ augroup END
 
 " Add leader mappings
 nnoremap <Leader>fs :set foldmethod=syntax<CR>
-nnoremap <Leader>n :NERDTreeToggle<CR>
+"nnoremap <Leader>n :NERDTreeToggle<CR>
+map <leader>n :Ranger<CR>
 nnoremap <Leader>gd :Gvdiff<CR>
 nnoremap <Leader>gs :Gstatus<CR>
 nnoremap <Leader>Y "+Y<CR>
