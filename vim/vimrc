@@ -208,10 +208,10 @@ map <F5> "+y
 "augroup END
 
 
-augroup vimrc_autocmds
-  autocmd FileType text highlight OverLength ctermfg=red ctermbg=None guibg=#592929
-  autocmd FileType text match OverLength /\%81v.*/
-augroup END
+" augroup vimrc_autocmds
+"   autocmd FileType text highlight OverLength ctermfg=red ctermbg=None guibg=#592929
+"   autocmd FileType text match OverLength /\%81v.*/
+" augroup END
 
 " Add leader mappings
 nnoremap <Leader>fs :set foldmethod=syntax<CR>
