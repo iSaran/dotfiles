@@ -292,6 +292,7 @@ autocmd FileType cpp inoremap <Leader>v std::cout<Space><<<Space>": "<<<Space><+
 autocmd FileType cpp inoremap <Leader>e std::cout<Space><<<Space>"======================================================="<Space><<<Space>std::endl;<Esc>2F"a:<Space><Esc>F:i
 autocmd FileType cpp inoremap <Leader>i #include<Space><><Esc>F<a
 autocmd FileType cpp inoremap <Leader>m \f$\f$<Space><++><Esc>2F$a
+autocmd FileType cpp inoremap <Leader>d /**<CR>\brief<CR>/<Esc>kA<Space>
 " Map Alt to movement keys in order to move in wrapped lines
 vmap <C-j> gj
 vmap <C-k> gk
