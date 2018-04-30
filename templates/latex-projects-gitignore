@@ -19,6 +19,10 @@ video/
 # Ignore output
 *.pdf
 
+# Package thmtools temporary files
+*.loe
+*.loa
+
 # Vim temp files
 *.swp
 
