@@ -1,0 +1,25 @@
+# Directories
+video/
+
+# LaTeX temp files
+*.aux
+*.bbl
+*.bcf
+*.blg
+*.fdb_latexmk
+*.fls
+*.log
+*.nav
+*.out
+*.toc
+*.vrb
+*.snm
+*.tmp
+
+# Ignore output
+*.pdf
+
+# Vim temp files
+*.swp
+
+
