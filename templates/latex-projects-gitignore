@@ -23,6 +23,13 @@ video/
 *.loe
 *.loa
 
+# Package glossary temporary files
+*.glo
+*.gls
+*.glg
+*.acn
+*.acr
+
 # Vim temp files
 *.swp
 
