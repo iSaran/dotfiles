@@ -13,5 +13,5 @@ else
 fi
 
 sudo apt-get update
-sudo apt-get install -y chromium-browser git vim git-gui indicator-multiload guake terminator gimp vlc inkscape kdenlive meshlab ffmpeg synaptic htop
+sudo apt-get install -y chromium-browser git vim git-gui indicator-multiload guake terminator gimp vlc inkscape kdenlive meshlab ffmpeg synaptic htop libreoffice-base
 
