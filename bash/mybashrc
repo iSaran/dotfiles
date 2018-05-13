@@ -33,6 +33,11 @@ if [ -d /usr/local/texlive/2016/bin/x86_64-linux ]; then
     export PATH=/usr/local/texlive/2016/bin/x86_64-linux:$PATH
 fi
 
+# Export to path texlive if Texlive2018 is installed
+if [ -d /usr/local/texlive/2018/bin/x86_64-linux ]; then
+    export PATH=/usr/local/texlive/2018/bin/x86_64-linux:$PATH
+fi
+
 # Export to path Iason Dotfiles if dotfiles is installed
 if [ -d $DOTFILES_DIR/bin ]; then
     export PATH=$PATH:$DOTFILES_DIR/bin
