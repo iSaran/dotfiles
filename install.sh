@@ -16,7 +16,7 @@ sudo apt-get install -y tree subversion pandoc pandoc-citeproc > /dev/null
 MESSAGE="Installing dotfiles..."; blue_echo
 
 mkdir -p $BACKUP_DIR
-declare -a arr=("mybash" "vim" "tmux" "ranger")
+declare -a arr=("mybash" "vim" "tmux" "ranger" "git")
 
 ## now loop through the above array
 for i in "${arr[@]}"
