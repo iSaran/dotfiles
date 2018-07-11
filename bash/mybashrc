@@ -48,7 +48,9 @@ if [ -d $HOME/Dropbox/code/scripts ]; then
     export PATH=$PATH:$HOME/Dropbox/code/scripts
 fi
 
-
+if [ -f $DOTFILES_DIR/git/diff-highlight/diff-highlight ]; then
+  export PATH=$PATH:$DOTFILES_DIR/git/diff-highlight/
+fi
 
 # Set some variables
 ## Change the looks of the prompt
