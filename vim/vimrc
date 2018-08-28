@@ -215,6 +215,7 @@ map <F5> "+y
 
 " Add leader mappings
 nnoremap <Leader>fs :set foldmethod=syntax<CR>
+nnoremap <Leader>ff :set foldmethod=indent<CR>
 "nnoremap <Leader>n :NERDTreeToggle<CR>
 map <leader>n :Ranger<CR>
 nnoremap <Leader>gd :Gvdiff<CR>
