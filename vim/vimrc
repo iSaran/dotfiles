@@ -270,7 +270,7 @@ autocmd FileType tex inoremap <Leader>sec \section{}<Enter><Enter><++><Esc>2kf}i
 autocmd FileType tex inoremap <Leader>ssec \subsection{}<Enter><Enter><++><Esc>2kf}i
 autocmd FileType tex inoremap <Leader>sssec \subsubsection{}<Enter><Enter><++><Esc>2kf}i
 autocmd FileType tex inoremap <Leader>m $$<Space><++><Esc>2T$i
-autocmd FileType tex inoremap <Leader>eq \begin{equation}<Enter>\end{equation}<Enter><Enter><++><Esc>3ko
+autocmd FileType tex inoremap <Leader>eq \begin{equation*}<Enter>\end{equation*}<Enter><Enter><++><Esc>3ko
 autocmd FileType tex inoremap <Leader>cas \begin{cases}<Enter>\end{cases}<Enter><Enter><++><Esc>3ko
 autocmd FileType tex inoremap <Leader>fig \begin{figure}[!h]<Enter>\centering<Enter>\includegraphics[width=\textwidth]{<++>}<Enter>\caption{<++>}<Enter>\label{<++>}<Enter>\end{figure}<Esc>3k0f=a
 autocmd FileType tex inoremap <Leader>beg \begin{}<Enter>\end{<++>}<Enter><Enter><++><Esc>3k0f{a
