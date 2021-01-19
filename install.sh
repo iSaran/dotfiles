@@ -10,8 +10,7 @@ source $INSTALL_SCRIPTS_DIR/my_echo.sh
 MESSAGE="Installing Dotfiles"; blue_echo
 
 MESSAGE="Installing Dependencies"; blue_echo
-sudo apt-get update > /dev/null
-sudo apt-get install -y tree subversion pandoc pandoc-citeproc > /dev/null
+sudo apt update > /dev/null
 
 MESSAGE="Installing dotfiles..."; blue_echo
 
