@@ -61,3 +61,5 @@ alias gch='git checkout'
 alias matlab16b='/usr/local/MATLAB/R2016b/bin/matlab'
 alias matlab17a='/usr/local/MATLAB/R2017a/bin/matlab'
 alias matlab18b='sudo /usr/local/MATLAB/R2018b/bin/matlab'
+
+alias dirsizes='du -hs */ ./* | sort -h'
